@@ -4,11 +4,19 @@ import axios from 'axios'
 const CATEGORIES = ['Food', 'Transport', 'Utilities', 'Entertainment', 'Health', 'Other']
 
 export default function ExpenseForm({ onExpenseAdded }) {
+    const getTodayString = () => {
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const day = String(today.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    }
+
     const [formData, setFormData] = useState({
         amount: '',
         category: 'Food', // Default
         description: '',
-        date: new Date().toISOString().split('T')[0] // Today
+        date: getTodayString() // Today
     })
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
@@ -47,7 +55,7 @@ export default function ExpenseForm({ onExpenseAdded }) {
                 amount: '',
                 category: 'Food',
                 description: '',
-                date: new Date().toISOString().split('T')[0]
+                date: getTodayString()
             })
             setIdempotencyKey(crypto.randomUUID())
 
@@ -104,7 +112,7 @@ export default function ExpenseForm({ onExpenseAdded }) {
                     name="date"
                     value={formData.date}
                     onChange={handleChange}
-                    max={new Date().toISOString().split('T')[0]}
+                    max={getTodayString()}
                     required
                 />
             </div>
