@@ -66,6 +66,15 @@ Given the tight 4-hour constraints, several strategic decisions were made to bal
 2.  Install dependencies: `npm install`
 3.  Start dev server: `npm run dev`
 
+### Deployment (Vercel)
+1.  Push this repository to GitHub.
+2.  Log in to [Vercel](https://vercel.com) and click **"Add New Project"**.
+3.  Import your repository.
+4.  **Environment Variables**: Add your `MONGO_URI` in the Vercel project settings.
+5.  **Build Command**: Vercel should automatically detect the configuration from `vercel.json`.
+    - It uses the root `vercel.json` to deploy the frontend statically and the backend as a Serverless Function.
+6.  Click **Deploy**!
+
 ## API Endpoints
 - `POST /expenses`: Create expense. Headers: `Idempotency-Key` (required).
 - `GET /expenses`: List expenses. Query: `category`, `sort=date_desc`.
