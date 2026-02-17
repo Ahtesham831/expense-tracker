@@ -5,8 +5,8 @@ const CATEGORIES = ['Food', 'Transport', 'Utilities', 'Entertainment', 'Health',
 export default function ExpenseList({ expenses, filters, onFilterChange, onExpenseDeleted }) {
 
     const handleSortToggle = () => {
-        // Toggle beween 'date_desc' and ''
-        const newSort = filters.sort === 'date_desc' ? '' : 'date_desc'
+        // Toggle beween 'date_desc' and 'date_asc'
+        const newSort = filters.sort === 'date_desc' ? 'date_asc' : 'date_desc'
         onFilterChange({ sort: newSort })
     }
 

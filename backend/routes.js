@@ -74,13 +74,12 @@ router.get('/', async (req, res) => {
 
         if (sort === 'date_desc') {
             dbQuery = dbQuery.sort({ date: -1 });
+        } else if (sort === 'date_asc') {
+            dbQuery = dbQuery.sort({ date: 1 });
         } else {
-            // Default sort or other sorts could go here.
-            // Requirement says "sort=date_desc (sort by date, newest first)"
-            // If not specified, maybe default order? or creation?
-            // "User can sort expenses by date (newest first)" implies it's an option.
-            // If not specific, maybe standard insertion order or undefined. 
-            // I'll leave default sort as undefined (natural order) unless requested.
+            // Default to newest first if no sort specified? 
+            // Or leave as natural order. Let's make newest first the default if nothing specified to be safe/consistent.
+            dbQuery = dbQuery.sort({ date: -1 });
         }
 
         const expenses = await dbQuery.exec();
