@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
 import ExpenseForm from './components/ExpenseForm'
 import ExpenseList from './components/ExpenseList'
+import CategorySummary from './components/CategorySummary'
 
 function App() {
     const [expenses, setExpenses] = useState([])
@@ -73,6 +74,8 @@ function App() {
                     <h2>Add New Expense</h2>
                     <ExpenseForm onExpenseAdded={handleExpenseAdded} />
                 </div>
+
+                <CategorySummary expenses={expenses} />
 
                 <div className="card">
                     <div className="flex justify-between items-center" style={{ marginBottom: '1rem' }}>

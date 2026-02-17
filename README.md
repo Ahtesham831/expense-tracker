@@ -9,6 +9,22 @@ We chose MongoDB for this project because:
 *   **JSON-Native:** Since our frontend (React) and backend (Node.js) both speak JSON, storing data as BSON (Binary JSON) in MongoDB eliminates the need for complex object-relational mapping (ORM).
 *   **Speed & Scalability:** MongoDB is optimized for high write loads (logging expenses) and fast reads (filtering/sorting), making it ideal for real-time transaction tracking.
 
+## Design Decisions & Trade-offs (4-Hour Timebox)
+
+Given the tight 4-hour constraints, several strategic decisions were made to balance speed, quality, and robustness:
+
+### Key Design Decisions
+*   **Idempotency over Auth:** Prioritized robust API design (handling network retries/double-clicks via `Idempotency-Key`) over implementing full user authentication, as data integrity is critical for finance apps.
+*   **Vanilla CSS Variables:** Used standard CSS variables for theming (Dark Mode) instead of setting up heavy UI libraries like Tailwind or Material UI. This reduced setup time while maintaining a premium look.
+*   **Component-Centric UI:** Built reusable components (`ExpenseList`, `ExpenseForm`, `CategorySummary`) to allow parallel development and easy testing.
+*   **MongoDB Atlas:** Chose a managed cloud database immediately to mimic a production environment rather than sticking to local-only databases.
+
+### Trade-offs
+*   **Single User Scope:** No authentication/login system was implemented. The app assumes a single-user environment.
+*   **Basic State Management:** Used React `useState`/`useEffect` instead of Redux/Context API, which is sufficient for this scale but would need refactoring for larger apps.
+*   **Integration Tests vs Unit Tests:** Focused on Backend Integration Tests (Supertest) to cover the most critical flows (API -> DB -> Response) rather than granular unit tests for every function.
+*   **Alert-based Feedback:** Error handling often relies on simple text messages rather than a sophisticated toast notification system.
+
 ## Tech Stack
 - **Backend**: Node.js, Express
 - **Database**: MongoDB (with Mongoose)
