@@ -1,6 +1,6 @@
 # Expense Tracker
 
-A simple, robust personal finance tool built with a "production-like" mindset.
+A robust, production-grade personal finance application.
 
 ## Why MongoDB?
 
@@ -24,6 +24,12 @@ Given the tight 4-hour constraints, several strategic decisions were made to bal
 *   **Basic State Management:** Used React `useState`/`useEffect` instead of Redux/Context API, which is sufficient for this scale but would need refactoring for larger apps.
 *   **Integration Tests vs Unit Tests:** Focused on Backend Integration Tests (Supertest) to cover the most critical flows (API -> DB -> Response) rather than granular unit tests for every function.
 *   **Alert-based Feedback:** Error handling often relies on simple text messages rather than a sophisticated toast notification system.
+
+### Out of Scope & Future Improvements
+*   **User Authentication:** Intentionally omitted for this single-user MVP. Future versions would include JWT-based login.
+*   **Complex State Management:** React `useState` was sufficient; Redux or Context API were deemed over-engineered for this scale.
+*   **Advanced Validation:** Relied on HTML5/Basic JS validation instead of heavy libraries like Zod or Joi to keep bundle size small.
+*   **Date Range Filtering:** Focused on core "sort by date" functionality; range pickers would be a nice-to-have addition.
 
 ## Tech Stack
 - **Backend**: Node.js, Express
