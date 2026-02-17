@@ -62,7 +62,7 @@ export default function ExpenseForm({ onExpenseAdded }) {
     return (
         <form onSubmit={handleSubmit}>
             <div className="flex flex-col">
-                <label className="text-sm text-secondary" style={{ marginBottom: 4 }}>Amount (₹)</label>
+                <label className="text-sm text-secondary" style={{ marginBottom: 4 }}><strong>Amount (₹)</strong></label>
                 <input
                     type="number"
                     name="amount"
@@ -76,7 +76,7 @@ export default function ExpenseForm({ onExpenseAdded }) {
             </div>
 
             <div className="flex flex-col">
-                <label className="text-sm text-secondary" style={{ marginBottom: 4 }}>Category</label>
+                <label className="text-sm text-secondary" style={{ marginBottom: 4 }}><strong>Category</strong></label>
                 <select name="category" value={formData.category} onChange={handleChange}>
                     {CATEGORIES.map(cat => (
                         <option key={cat} value={cat}>{cat}</option>
@@ -85,7 +85,7 @@ export default function ExpenseForm({ onExpenseAdded }) {
             </div>
 
             <div className="flex flex-col">
-                <label className="text-sm text-secondary" style={{ marginBottom: 4 }}>Description</label>
+                <label className="text-sm text-secondary" style={{ marginBottom: 4 }}><strong>Description</strong></label>
                 <textarea
                     name="description"
                     value={formData.description}
@@ -98,7 +98,7 @@ export default function ExpenseForm({ onExpenseAdded }) {
             </div>
 
             <div className="flex flex-col">
-                <label className="text-sm text-secondary" style={{ marginBottom: 4 }}>Date</label>
+                <label className="text-sm text-secondary" style={{ marginBottom: 4 }}><strong>Date</strong></label>
                 <input
                     type="date"
                     name="date"

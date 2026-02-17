@@ -61,9 +61,9 @@ function App() {
         <div>
             <header className="flex justify-between items-center" style={{ marginBottom: '2rem' }}>
                 <h1>💰 Expense Tracker</h1>
-                <div className="card" style={{ padding: '0.5rem 1rem', margin: 0 }}>
-                    <span className="text-secondary">Total: </span>
-                    <span className="amount" style={{ fontSize: '1.2em' }}>
+                <div className="card" style={{ padding: '1rem 2rem', margin: 0, textAlign: 'center' }}>
+                    <span className="text-secondary" style={{ textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.9rem' }}>Total Expense</span>
+                    <span className="total-highlight">
                         ₹{totalAmount.toLocaleString('en-IN')}
                     </span>
                 </div>
