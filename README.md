@@ -63,3 +63,32 @@ Given the tight 4-hour constraints, several strategic decisions were made to bal
 ## API Endpoints
 - `POST /expenses`: Create expense. Headers: `Idempotency-Key` (required).
 - `GET /expenses`: List expenses. Query: `category`, `sort=date_desc`.
+
+## Folder Structure
+
+```
+ExpenseTracker/
+├── backend/
+│   ├── models/
+│   │   ├── Expense.js        # Mongoose Schema for Expense
+│   │   └── Idempotency.js    # Schema for idempotency keys
+│   ├── tests/
+│   │   └── expenses.test.js  # Integration (Supertest) tests
+│   ├── .env                  # Environment variables (Mongo URI)
+│   ├── routes.js             # API Routes (POST, GET, DELETE)
+│   └── server.js             # Express app entry point
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── CategorySummary.jsx  # Totals by category
+│   │   │   ├── ExpenseForm.jsx      # Add expense form
+│   │   │   └── ExpenseList.jsx      # List with sort/filter/delete
+│   │   ├── App.jsx           # Main state & layout
+│   │   ├── index.css         # Global styles & theming
+│   │   └── main.jsx          # React entry point
+│   ├── index.html
+│   └── vite.config.js
+│
+└── README.md
+```
