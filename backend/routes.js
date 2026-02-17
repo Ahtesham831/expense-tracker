@@ -91,4 +91,21 @@ router.get('/', async (req, res) => {
     }
 });
 
+// DELETE /expenses/:id - Delete an expense
+router.delete('/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const deletedExpense = await Expense.findByIdAndDelete(id);
+
+        if (!deletedExpense) {
+            return res.status(404).json({ error: 'Expense not found' });
+        }
+
+        res.json({ message: 'Expense deleted successfully' });
+    } catch (err) {
+        console.error('Error deleting expense:', err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
 module.exports = router;

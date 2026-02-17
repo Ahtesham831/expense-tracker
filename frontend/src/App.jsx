@@ -7,7 +7,7 @@ function App() {
     const [expenses, setExpenses] = useState([])
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
-    const [filters, setFilters] = useState({ category: '', sort: '' })
+    const [filters, setFilters] = useState({ category: '', sort: 'date_desc' })
 
     const fetchExpenses = useCallback(async () => {
         setLoading(true)
@@ -37,6 +37,17 @@ function App() {
         // but we can also append/prepend based on sort.
         // Let's refetch to ensure consistency with backend sort/filter
         fetchExpenses()
+    }
+
+    const handleExpenseDeleted = async (id) => {
+        try {
+            await axios.delete(`/expenses/${id}`)
+            // Remove from local state to update UI and Total immediately without refetching everything
+            setExpenses(prev => prev.filter(expense => expense._id !== id))
+        } catch (err) {
+            console.error(err)
+            setError('Failed to delete expense. Please try again.')
+        }
     }
 
     const handleFilterChange = (newFilters) => {
@@ -75,6 +86,7 @@ function App() {
                         expenses={expenses}
                         filters={filters}
                         onFilterChange={handleFilterChange}
+                        onExpenseDeleted={handleExpenseDeleted}
                     />
                 </div>
             </main>

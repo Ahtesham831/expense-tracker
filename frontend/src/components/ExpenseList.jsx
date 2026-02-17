@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 const CATEGORIES = ['Food', 'Transport', 'Utilities', 'Entertainment', 'Health', 'Other']
 
-export default function ExpenseList({ expenses, filters, onFilterChange }) {
+export default function ExpenseList({ expenses, filters, onFilterChange, onExpenseDeleted }) {
 
     const handleSortToggle = () => {
         // Toggle beween 'date_desc' and ''
@@ -49,6 +49,7 @@ export default function ExpenseList({ expenses, filters, onFilterChange }) {
                                 <th>Description</th>
                                 <th>Category</th>
                                 <th>Amount</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -67,6 +68,21 @@ export default function ExpenseList({ expenses, filters, onFilterChange }) {
                                         </span>
                                     </td>
                                     <td className="amount">₹{expense.amount.toLocaleString('en-IN')}</td>
+                                    <td>
+                                        <button
+                                            onClick={() => onExpenseDeleted(expense._id)}
+                                            style={{
+                                                backgroundColor: 'transparent',
+                                                color: 'var(--error-color)',
+                                                padding: '4px 8px',
+                                                fontSize: '0.9em',
+                                                boxShadow: 'none'
+                                            }}
+                                            title="Delete Expense"
+                                        >
+                                            🗑️
+                                        </button>
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>
