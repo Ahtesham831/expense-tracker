@@ -34,7 +34,7 @@ Given the tight 4-hour constraints, several strategic decisions were made to bal
 ## Tech Stack
 - **Backend**: Node.js, Express
 - **Database**: MongoDB (with Mongoose)
-  - *Choice Rationale*: Originally planned for SQLite, but switched to MongoDB as per request. MongoDB is a flexible NoSQL database suitable for JSON-like data structures like expenses. Mongoose provides schema validation and easy interaction.
+  - *MongoDB is a flexible NoSQL database suitable for JSON-like data structures like expenses. Mongoose provides schema validation and easy interaction.*
 - **Frontend**: React (Vite)
 - **Styling**: Vanilla CSS (Custom properties, responsive, dark mode)
 
