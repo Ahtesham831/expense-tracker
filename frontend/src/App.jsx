@@ -60,7 +60,7 @@ function App() {
     return (
         <div>
             <header className="flex justify-between items-center" style={{ marginBottom: '2rem' }}>
-                <h1>💰 Expense Tracker</h1>
+                <h1 style={{ fontSize: '3rem' }}>Expense Tracker</h1>
                 <div className="card" style={{ padding: '1rem 2rem', margin: 0, textAlign: 'center' }}>
                     <span className="text-secondary" style={{ textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.9rem' }}>Total Expense</span>
                     <span className="total-highlight">
