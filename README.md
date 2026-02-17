@@ -2,6 +2,13 @@
 
 A simple, robust personal finance tool built with a "production-like" mindset.
 
+## Why MongoDB?
+
+We chose MongoDB for this project because:
+*   **Flexible Schema:** Expenses can vary (e.g., optional descriptions, future metadata), and MongoDB's document model handles this naturally without rigid migrations.
+*   **JSON-Native:** Since our frontend (React) and backend (Node.js) both speak JSON, storing data as BSON (Binary JSON) in MongoDB eliminates the need for complex object-relational mapping (ORM).
+*   **Speed & Scalability:** MongoDB is optimized for high write loads (logging expenses) and fast reads (filtering/sorting), making it ideal for real-time transaction tracking.
+
 ## Tech Stack
 - **Backend**: Node.js, Express
 - **Database**: MongoDB (with Mongoose)
