@@ -91,7 +91,8 @@ button:disabled {
 
 /* Inputs */
 input,
-select {
+select,
+textarea {
     background-color: #0f172a;
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
@@ -106,7 +107,8 @@ select {
 }
 
 input:focus,
-select:focus {
+select:focus,
+textarea:focus {
     outline: none;
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);

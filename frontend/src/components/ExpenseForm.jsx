@@ -86,12 +86,13 @@ export default function ExpenseForm({ onExpenseAdded }) {
 
             <div className="flex flex-col">
                 <label className="text-sm text-secondary" style={{ marginBottom: 4 }}>Description</label>
-                <input
-                    type="text"
+                <textarea
                     name="description"
                     value={formData.description}
                     onChange={handleChange}
                     placeholder="What was this for?"
+                    rows="3"
+                    style={{ resize: 'vertical' }}
                     required
                 />
             </div>
